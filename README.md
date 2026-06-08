@@ -47,13 +47,7 @@ O bench automatico testa 3 categorias:
 
 ## Como participar
 
-1. Faca um fork deste repo
-2. Copie `template/` para `participants/<nome-do-time>/`
-3. Edite `info.json` com os dados do time
-4. Implemente `backend/src/routes/transactions.js`
-5. Abra um PR para `main`
-
-O benchmark roda automaticamente. Quando todos os testes passarem, o PR pode ser mergeado.
+Leia o **[CONTRIBUTING.md](./CONTRIBUTING.md)** antes de comecar. La tem o passo a passo completo, boas praticas e o que **nao** fazer para evitar problemas.
 
 ## Regras
 
@@ -65,5 +59,6 @@ O benchmark roda automaticamente. Quando todos os testes passarem, o PR pode ser
 
 ## Links
 
+- [Como contribuir](./CONTRIBUTING.md)
 - [Regras de negocio](./REGRA_DE_NEGOCIO.md)
 - [Leaderboard](./LEADERBOARD.md)
