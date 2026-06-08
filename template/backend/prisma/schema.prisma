@@ -9,7 +9,6 @@ datasource db {
 
 model Transaction {
   id                 String   @id @default(uuid())
-  idempotencyKey     String   @unique @map("idempotency_key")
   status             String   // approved, declined, refunded
   cardLast4          String   @map("card_last4")
   cardBrand          String   @map("card_brand")
@@ -23,8 +22,5 @@ model Transaction {
   description        String
   createdAt          DateTime @default(now()) @map("created_at")
 
-  @@index([cardLast4, createdAt], name: "idx_card_date")
-  @@index([status], name: "idx_status")
-  @@index([createdAt(sort: Desc)], name: "idx_created")
   @@map("transactions")
 }

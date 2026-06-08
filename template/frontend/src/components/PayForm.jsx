@@ -18,11 +18,7 @@ export default function PayForm({ onSubmit }) {
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    // Gera idempotency_key unico para cada submit
-    const idempotencyKey = crypto.randomUUID()
-
     onSubmit({
-      idempotency_key: idempotencyKey,
       card_number: form.card_number,
       holder_name: form.holder_name,
       expiration: form.expiration,
@@ -35,7 +31,6 @@ export default function PayForm({ onSubmit }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      {/* IMPORTANTE: cada input precisa da classe .input-* ou .select-* */}
       <div>
         <label>Numero do Cartao</label>
         <input
