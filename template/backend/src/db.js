@@ -1,10 +1,7 @@
-import { PrismaClient } from '@prisma/client'
+import { PrismaBetterSqlite3 } from '@prisma/adapter-better-sqlite3'
+import { PrismaClient } from '../generated/prisma/client.js'
 
-const prisma = new PrismaClient()
-
-// Configura PRAGMAs do SQLite para performance e concorrencia
-await prisma.$executeRawUnsafe('PRAGMA journal_mode = WAL')
-await prisma.$executeRawUnsafe('PRAGMA busy_timeout = 5000')
-await prisma.$executeRawUnsafe('PRAGMA synchronous = NORMAL')
+const adapter = new PrismaBetterSqlite3({ url: 'file:../data.db' })
+const prisma = new PrismaClient({ adapter })
 
 export default prisma
