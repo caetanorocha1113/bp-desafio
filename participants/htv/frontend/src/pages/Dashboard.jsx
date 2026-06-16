@@ -45,14 +45,14 @@ export default function Dashboard() {
     try{
       const res = await fetch('/api/transactions', {
         method: 'POST',
-        headers: { 'Contet-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body)
       })
 
 
       if(res.status === 201) {
         const data = await res.json()
-        setFeedback({ type: 'sucess', message: 'Pagamento aprovado! ID: ${data.id}'})
+        setFeedback({ type: 'sucess', message: `Pagamento aprovado! ID: ${data.id}`})
 
 
         const balanceRes = await fetch ('/api/balance')
@@ -91,7 +91,7 @@ export default function Dashboard() {
 
       {/*Feedback*/}
       {feedback && (
-        <div classNme={feedback.type === 'sucess' ? 'feedback-sucess' : 'feedback-error'}>
+        <div className={feedback.type === 'sucess' ? 'feedback-sucess' : 'feedback-error'}>
           {feedback.message}
           </div>
       )}
@@ -114,7 +114,7 @@ export default function Dashboard() {
           <input
           className = "input-expiration"
           value = {expiration}
-          onChange={e => setExpiration(e.tarhet.value)}
+          onChange={e => setExpiration(e.target.value)}
           placeholder="12/28"
           />
         </div>
