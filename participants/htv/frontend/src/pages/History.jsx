@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react'
-
 import '../styles/history.css'
 import { useSearchParams } from 'react-router'
-import './styles/history.css'
+
 
 
 export default function History() {
