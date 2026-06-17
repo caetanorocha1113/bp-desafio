@@ -1,31 +1,12 @@
 import prisma from '../db.js'
 
-export default async function (fastify) {
-
-  fastify.get('/health', async () => ({ status: 'ok' }))
-
-  fastify.get('/balance', async (req, reply) => {
-    // TODO: implementar
-    reply.code(501).send({ error: 'Nao implementado ainda!' })
-  })
-
-  fastify.post('/transactions', async (req, reply) => {
-    // TODO: implementar
-    reply.code(501).send({ error: 'Nao implementado ainda!' })
-  })
-
-  fastify.get('/transactions/:id', async (req, reply) => {
-    // TODO: implementar
-    reply.code(501).send({ error: 'Nao implementado ainda!' })
-  })
-
-  fastify.get('/transactions', async (req, reply) => {
-    // TODO: implementar
-    reply.code(501).send({ error: 'Nao implementado ainda!' })
-  })
-
-  fastify.post('/transactions/:id/refund', async (req, reply) => {
-    // TODO: implementar
-    reply.code(501).send({ error: 'Nao implementado ainda!' })
-  })
+function detectBrand(cardNumber){
+  const first = cardNumber[0]
+  const brands = {
+    '4': {name: 'visa', fee: 0.025},
+    '5': {name: 'mastercard', fee: 0.03},
+    '3': {name: 'amex', fee: 0.035},
+    '6': {name: 'elo', fee: 0.04},
+  }
+  return brands[first] || null
 }
