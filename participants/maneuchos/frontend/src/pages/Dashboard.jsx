@@ -140,11 +140,11 @@ export default function Dashboard() {
           <form className="payment-form" onSubmit={handleSubmit}>
             <div className="form-field full">
               <label htmlFor="card_number">Numero do cartao</label>
-              <input id="card_number" className="input-card-number" name="card_number" inputMode="numeric" maxLength="19" placeholder="4111 1111 1111 1111" onChange={formatCardNumber} />
+              <input id="card_number" className="input-card-number" name="card_number" inputMode="numeric" maxLength="19" placeholder="0000 0000 0000 0000" onChange={formatCardNumber} />
             </div>
             <div className="form-field">
               <label htmlFor="holder_name">Nome do titular</label>
-              <input id="holder_name" className="input-holder-name" name="holder_name" maxLength="50" placeholder="Joao Silva" />
+              <input id="holder_name" className="input-holder-name" name="holder_name" maxLength="50" placeholder="João Silva" />
             </div>
             <div className="form-field">
               <label htmlFor="expiration">Validade</label>
@@ -160,7 +160,7 @@ export default function Dashboard() {
             </div>
             <div className="form-field">
               <label htmlFor="cvv">CVV</label>
-              <input id="cvv" className="input-cvv" name="cvv" inputMode="numeric" maxLength="3" placeholder="123" />
+              <input id="cvv" className="input-cvv" name="cvv" inputMode="numeric" maxLength="3" placeholder="000" />
             </div>
             <div className="form-field">
               <label htmlFor="amount_cents">Valor</label>
@@ -177,7 +177,7 @@ export default function Dashboard() {
             </div>
             <div className="form-field">
               <label htmlFor="description">Descricao</label>
-              <input id="description" className="input-description" name="description" maxLength="100" defaultValue="Compra SENAI" />
+              <input id="description" className="input-description" name="description" maxLength="100" placeholder="Compra SENAI" />
             </div>
             <button className="btn-pay" type="submit" disabled={loading}>
               {loading ? 'Enviando...' : 'Pagar'}
