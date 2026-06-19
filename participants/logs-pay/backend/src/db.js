@@ -1,15 +1,7 @@
-import pg from 'pg'
-import { PrismaPg } from '@prisma/adapter-pg'
-import { PrismaClient } from '../generated/prisma/client.js'
+import { PrismaLibSql } from '@prisma/adapter-libsql'
+import { PrismaClient } from '../generated/prisma/client.ts'
 
-try {
-  process.loadEnvFile()
-} catch (e) {
-  // Ignored if file does not exist
-}
-
-const pool = new pg.Pool({ connectionString: process.env.DATABASE_URL })
-const adapter = new PrismaPg(pool)
+const adapter = new PrismaLibSql({ url: 'file:../data.db' })
 const prisma = new PrismaClient({ adapter })
 
 export default prisma

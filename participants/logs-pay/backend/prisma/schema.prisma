@@ -1,11 +1,10 @@
 generator client {
-  provider   = "prisma-client-js"
-  engineType = "library"
-  output     = "../generated/prisma"
+  provider = "prisma-client"
+  output   = "../generated/prisma"
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
 }
 
 model Transaction {
