@@ -215,7 +215,7 @@
     {
       "name": "Transacoes no historico",
       "ok": true,
-      "detail": "10 items"
+      "detail": "9 items"
     },
     {
       "name": "Item tem .transaction-id",
@@ -357,12 +357,12 @@
     {
       "name": "Throughput >= 50 txn/s",
       "ok": true,
-      "detail": "402 txn/s, 497ms"
+      "detail": "627 txn/s, 319ms"
     },
     {
       "name": "P95 < 500ms",
       "ok": true,
-      "detail": "p50=46ms p95=60ms p99=80ms avg=48ms"
+      "detail": "p50=28ms p95=47ms p99=49ms avg=31ms"
     },
     {
       "name": "Idempotencia concorrente",
@@ -381,14 +381,14 @@
     }
   ],
   "metrics": {
-    "throughput": 402,
-    "stress_elapsed_ms": 497,
+    "throughput": 627,
+    "stress_elapsed_ms": 319,
     "stress_created": 200,
     "stress_total": 200,
-    "latency_p50_ms": 46,
-    "latency_p95_ms": 60,
-    "latency_p99_ms": 80,
-    "latency_avg_ms": 48
+    "latency_p50_ms": 28,
+    "latency_p95_ms": 47,
+    "latency_p99_ms": 49,
+    "latency_avg_ms": 31
   },
   "summary": {
     "pass": 75,
