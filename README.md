@@ -1,64 +1,50 @@
-# Rinha FullStack SENAI 2026
+# 💳 Gateway de Pagamento - Desafio BP Promotora
 
-Competicao de programacao onde times de alunos implementam um **gateway de pagamento fake** completo (backend + frontend) e competem por performance e corretude.
+Projeto desenvolvido pela equipe **Maneuchos** como parte das atividades do 2º trimestre da disciplina de Desenvolvimento de Sistemas. O projeto consiste em uma plataforma de pagamentos que simula um gateway real, realizando cálculos de juros, gestão de transações e controle de limites.
 
-## Como funciona
+## 🚀 Funcionalidades
 
-1. Cada time copia o `template/` para `participants/<nome-do-time>/`
-2. Implementa as regras de negocio no backend (o frontend ja vem pronto)
-3. Abre um **Pull Request** com a solucao
-4. O benchmark automatico roda e posta o resultado no PR
-5. Ao mergear, o leaderboard e atualizado
+- **Dashboard Integrado:** Visualização do resumo de pagamentos e painel de controle.
+- **Histórico de Transações:** Tela dedicada ao acompanhamento e detalhamento de todas as movimentações.
+- **Integração Frontend/Backend:** Consumo de API própria para registro e validação de operações.
+- **Banco de Dados Relacional:** Armazenamento seguro de transações utilizando SQLite.
 
-## Stack
+## 💻 Tecnologias Utilizadas
 
-| Camada | Tecnologia |
-|--------|-----------|
-| Backend | Node.js + Fastify |
-| Frontend | React + Vite |
-| Banco | SQLite + Prisma |
-| Porta | 3000 (unica) |
+O projeto foi construído utilizando as seguintes ferramentas:
 
-## Comandos
+* **Frontend:** React.js, Vite, HTML5, CSS3
+* **Backend:** Node.js, Express
+* **Banco de Dados & ORM:** SQLite, Prisma ORM[cite: 5]
 
-```bash
-cd participants/<seu-time>
-npm install        # instala back + front via workspaces
-npm run build      # builda o React
-npm start          # sobe tudo na porta 3000
-```
+## 📂 Arquitetura do Projeto
 
-## Benchmark
+O repositório adota uma estrutura em monorepo, separando as responsabilidades entre a interface do usuário (Frontend) e a API (Backend)[cite: 5]:
 
-O bench automatico testa 3 categorias:
-
-| Categoria | Pontos | O que testa |
-|-----------|--------|-------------|
-| Regras de negocio | 50 | Taxas, juros, limites, idempotencia, estorno |
-| Frontend | 30 | Elementos CSS, formulario, historico, paginacao |
-| Stress test | 20 | 200 txns concorrentes, throughput, latencia p95 |
-
-### Metricas de performance
-
-- **Throughput** (txn/s) com 20 workers concorrentes
-- **Latencia** p50, p95, p99
-- **Read/Write concorrente** (50 writes + 50 reads simultaneos)
-- **Idempotencia** e **double refund** sob concorrencia
-
-## Como participar
-
-Leia o **[CONTRIBUTING.md](./CONTRIBUTING.md)** antes de comecar. La tem o passo a passo completo, boas praticas e o que **nao** fazer para evitar problemas.
-
-## Regras
-
-- JavaScript ou TypeScript (o time escolhe)
-- Sem Docker
-- Tudo roda em uma porta so (3000)
-- O banco SQLite e criado automaticamente
-- Alteracoes fora de `participants/` precisam de aprovacao do organizador
-
-## Links
-
-- [Como contribuir](./CONTRIBUTING.md)
-- [Regras de negocio](./REGRA_DE_NEGOCIO.md)
-- [Leaderboard](./LEADERBOARD.md)
+```text
+maneuchos/
+│
+├── backend/                  # Servidor Node.js e regras de negócio[cite: 5]
+│   ├── prisma/               # Configuração e Schema do banco via Prisma ORM[cite: 5]
+│   │   └── schema.prisma     # Modelagem das tabelas[cite: 5]
+│   ├── src/
+│   │   ├── routes/           # Endpoints da API (ex: transactions.js)[cite: 5]
+│   │   ├── db.js             # Instância e conexão com o banco[cite: 5]
+│   │   └── index.js          # Ponto de entrada do servidor[cite: 5]
+│   ├── .env                  # Variáveis de ambiente[cite: 5]
+│   ├── prisma.config.ts      # Configurações adicionais do Prisma[cite: 5]
+│   └── package.json          # Dependências do backend[cite: 5]
+│
+├── frontend/                 # Aplicação React configurada com Vite[cite: 5]
+│   ├── src/
+│   │   ├── pages/            # Telas da aplicação (Dashboard.jsx, Detail.jsx, History.jsx)[cite: 5]
+│   │   ├── api.js            # Arquivo centralizador de requisições para o Backend[cite: 5]
+│   │   ├── App.jsx           # Roteamento e estrutura principal[cite: 5]
+│   │   ├── main.jsx          # Ponto de montagem do React[cite: 5]
+│   │   └── styles.css        # Folha de estilos globais[cite: 5]
+│   ├── index.html            # Template principal do navegador[cite: 5]
+│   ├── vite.config.js        # Configurações do empacotador Vite[cite: 5]
+│   └── package.json          # Dependências do frontend[cite: 5]
+│
+├── data.db                   # Arquivo local do banco de dados SQLite[cite: 5]
+└── package.json              # Configurações e scripts raiz do repositório[cite: 5]
